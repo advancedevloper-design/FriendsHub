@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Friends Kredit - Premium 3D Financial Services & DSA Partner Network</title>
+    <meta name="description" content="Friends Kredit provides premium loan distribution, instant KYC loans, credit cards, insurance, and an industry-leading DSA Partner Network across India." />
+    <meta property="og:title" content="Friends Kredit - Premium 3D Financial Services & DSA Partner Network" />
+    <meta property="og:description" content="Friends Kredit provides premium loan distribution, instant KYC loans, credit cards, insurance, and an industry-leading DSA Partner Network across India." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin href="/assets/index-C9UNX1ia.css">
+    <style>
+      #portal-direct-pill {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #09224d;
+        border: 1px solid #38bdf8;
+        padding: 8px 16px;
+        border-radius: 9999px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.3);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      #portal-direct-pill:hover {
+        transform: translateY(-2px);
+        background: #0f3473;
+        border-color: #dfb135;
+      }
+      #portal-direct-pill span {
+        color: #ffffff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      #portal-direct-pill strong {
+        color: #dfb135;
+      }
+    </style>
+  </head>
+  <body class="bg-[#040e21] text-slate-100 antialiased selection:bg-[#dfb135]/30 selection:text-white">
+    <div id="root"></div>
+
+    <!-- Quick Portal Access Action Pill -->
+    <div 
+      id="portal-direct-pill" 
+      onclick="try { window.parent && window.parent.postMessage({ type: 'LAUNCH_PORTAL' }, '*'); } catch(e) {} window.location.href='/portal.html';"
+      title="Access FinConnect Financial Products & Operations Hub"
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <span>FinConnect Hub & <strong>Partner Portal</strong> →</span>
+    </div>
+
+    <!-- Floating System Credentials Quick Helper -->
+    <div id="credentials-quick-bar" class="fixed top-24 left-4 z-50 bg-[#06142e]/95 border border-[#dfb135]/40 rounded-2xl p-3 shadow-2xl backdrop-blur-md max-w-sm text-xs hidden sm:block">
+      <div class="flex items-center justify-between gap-2 pb-2 mb-2 border-b border-slate-700/60">
+        <div class="flex items-center gap-1.5 font-bold text-[#dfb135]">
+          <span>🔑</span>
+          <span>Operations & Staff Credentials</span>
+        </div>
+        <button onclick="document.getElementById('credentials-quick-bar').classList.toggle('opacity-30')" class="text-slate-400 hover:text-white text-[10px] px-1.5 py-0.5 rounded bg-slate-800">minimize</button>
+      </div>
+      <div class="space-y-1.5 text-slate-300 text-[11px]">
+        <div class="flex items-center justify-between p-1 rounded hover:bg-slate-800/60">
+          <div><strong class="text-purple-300">👑 Super Admin:</strong> <span class="text-slate-400">admin@friendskredit.com</span></div>
+          <button onclick="launchPortalAsRole('super_admin')" class="px-2 py-0.5 rounded bg-purple-900/60 text-purple-200 border border-purple-500/40 font-bold text-[10px] hover:bg-purple-800">Login →</button>
+        </div>
+        <div class="flex items-center justify-between p-1 rounded hover:bg-slate-800/60">
+          <div><strong class="text-indigo-300">🏢 Admin/Ops:</strong> <span class="text-slate-400">operations@friendskredit.com</span></div>
+          <button onclick="launchPortalAsRole('admin')" class="px-2 py-0.5 rounded bg-indigo-900/60 text-indigo-200 border border-indigo-500/40 font-bold text-[10px] hover:bg-indigo-800">Login →</button>
+        </div>
+        <div class="flex items-center justify-between p-1 rounded hover:bg-slate-800/60">
+          <div><strong class="text-blue-300">📋 Staff/Underwriter:</strong> <span class="text-slate-400">underwriter@friendskredit.com</span></div>
+          <button onclick="launchPortalAsRole('staff')" class="px-2 py-0.5 rounded bg-blue-900/60 text-blue-200 border border-blue-500/40 font-bold text-[10px] hover:bg-blue-800">Login →</button>
+        </div>
+        <div class="flex items-center justify-between p-1 rounded hover:bg-slate-800/60">
+          <div><strong class="text-emerald-300">🤝 DSA Partner:</strong> <span class="text-slate-400">rajesh@sharmafin.com</span></div>
+          <button onclick="launchPortalAsRole('retail_partner')" class="px-2 py-0.5 rounded bg-emerald-900/60 text-emerald-200 border border-emerald-500/40 font-bold text-[10px] hover:bg-emerald-800">Login →</button>
+        </div>
+      </div>
+      <div class="mt-2 pt-1.5 border-t border-slate-700/60 text-[10px] text-slate-400 text-center">
+        Password: <code class="text-amber-300 font-mono">Admin@Friends2026</code> / <code class="text-amber-300 font-mono">Partner@2026</code>
+      </div>
+    </div>
+
+    <script src="/finconnect-sync.js"></script>
+    <script>
+      function launchPortalAsRole(role) {
+        localStorage.setItem('finconnect_role', role);
+        try {
+          window.parent && window.parent.postMessage({ type: 'LAUNCH_PORTAL', role: role }, '*');
+        } catch(e) {}
+        window.location.href = '/portal.html';
+      }
+
+      // Intercept and sync dynamic forms on Home page
+      document.addEventListener('submit', function(e) {
+        const form = e.target;
+        
+        // 1. Check if it's the DSA registration form
+        const nameInput = form.querySelector('input[placeholder*="Rajesh Kumar Sharma"]');
+        const mobileInput = form.querySelector('input[placeholder*="10 digit mobile"]');
+        const emailInput = form.querySelector('input[type="email"]');
+        const cityInput = form.querySelector('input[placeholder*="Mumbai, Delhi"]');
+        
+        if (nameInput && mobileInput && emailInput) {
+          const dsaData = {
+            fullName: nameInput.value.trim(),
+            mobile: mobileInput.value.trim(),
+            email: emailInput.value.trim(),
+            city: cityInput ? cityInput.value.trim() : 'Mumbai',
+            currentProfession: form.querySelector('select')?.value || 'Loan Agent / DSA',
+            expectedMonthlyVolume: form.querySelectorAll('select')[1]?.value || '₹50 Lakhs - ₹1 Crore'
+          };
+          if (window.FinConnectBridge) {
+            window.FinConnectBridge.recordDsaRegistration(dsaData);
+          }
+          return;
+        }
+
+        // 2. Check if it's the Apply Loan modal form
+        const loanAmountInput = form.querySelector('input[type="range"]') || form.querySelector('input[value*="0000"]');
+        const custNameInput = form.querySelector('input[placeholder*="Full Name"], input[placeholder*="name"]');
+        const custMobileInput = form.querySelector('input[placeholder*="mobile"], input[placeholder*="phone"]');
+        if (custNameInput && custMobileInput) {
+          const loanData = {
+            customerName: custNameInput.value.trim(),
+            customerMobile: custMobileInput.value.trim(),
+            customerEmail: form.querySelector('input[type="email"]')?.value?.trim() || 'customer@friendskredit.com',
+            customerPan: form.querySelector('input[placeholder*="PAN"]')?.value?.trim() || 'PENDING-KYC',
+            loanAmount: loanAmountInput ? loanAmountInput.value : 500000,
+            city: form.querySelector('input[placeholder*="city"], input[placeholder*="City"]')?.value?.trim() || 'Mumbai',
+            preferredBank: form.querySelector('select')?.value || 'State Bank of India',
+            employmentType: 'Salaried',
+            monthlyIncome: 65000
+          };
+          if (window.FinConnectBridge) {
+            window.FinConnectBridge.recordLoanApplication(loanData);
+          }
+        }
+      }, true);
+    </script>
+    <script type="module" crossorigin src="/assets/index-DBIPSQ3k.js"></script>
+  </body>
+</html>

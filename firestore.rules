@@ -1,0 +1,91 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'thesmarteservice3@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isValidId(userId) && isOwner(userId) &&
+        incoming().id == userId &&
+        incoming().role in ['customer', 'dsa_agent', 'retailer'];
+      allow update: if isValidId(userId) && (
+        isAdmin() ||
+        (isOwner(userId) && !incoming().diff(existing()).affectedKeys().hasAny(['role', 'id']))
+      );
+      allow delete: if isValidId(userId) && isAdmin();
+    }
+
+    // Admins marker collection
+    match /admins/{adminId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    // Loan and financial applications
+    match /applications/{applicationId} {
+      allow get: if isValidId(applicationId) && (
+        isAdmin() ||
+        (isSignedIn() && resource.data.partnerId == request.auth.uid) ||
+        (isSignedIn() && resource.data.applicantEmail == request.auth.token.email)
+      );
+      allow list: if isSignedIn() && (
+        isAdmin() ||
+        resource.data.partnerId == request.auth.uid ||
+        resource.data.applicantEmail == request.auth.token.email
+      );
+      allow create: if isValidId(applicationId) && isSignedIn();
+      allow update: if isValidId(applicationId) && (
+        isAdmin() ||
+        (isSignedIn() && resource.data.partnerId == request.auth.uid)
+      );
+      allow delete: if isValidId(applicationId) && isAdmin();
+    }
+
+    // Commissions ledger
+    match /commissions/{commissionId} {
+      allow get: if isValidId(commissionId) && (
+        isAdmin() ||
+        (isSignedIn() && resource.data.partnerId == request.auth.uid)
+      );
+      allow list: if isSignedIn() && (
+        isAdmin() ||
+        resource.data.partnerId == request.auth.uid
+      );
+      allow write: if isValidId(commissionId) && isAdmin();
+    }
+  }
+}

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FriendsKredit — YOUR TRUST, OUR CREDIT | Empowering Dreams. Building Better Tomorrow</title>
+    <meta name="description" content="FriendsKredit — YOUR TRUST, OUR CREDIT. Empowering Dreams. Building Better Tomorrow. India's trusted financial services, loans, credit cards, and partner DSA gateway with 50+ banking partners." />
+    <meta property="og:title" content="FriendsKredit — YOUR TRUST, OUR CREDIT" />
+    <meta property="og:description" content="FriendsKredit - Empowering Dreams. Building Better Tomorrow. Multi-segment lending, retail partner portal, and financial services platform." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/friendskredit-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cl8AJNQn.css">
+    <style>
+      #back-to-home-bar {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #040e21;
+        border: 1px solid #dfb135;
+        padding: 8px 16px;
+        border-radius: 9999px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(223, 177, 53, 0.3);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      #back-to-home-bar:hover {
+        transform: translateY(-2px);
+        background: #0a1b38;
+      }
+      #back-to-home-bar span {
+        color: #f1f5f9;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      #back-to-home-bar strong {
+        color: #dfb135;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased font-sans">
+    <div id="root"></div>
+
+    <!-- Return to Project 1 Home Page Floating Action -->
+    <div 
+      id="back-to-home-bar" 
+      onclick="try { window.parent && window.parent.postMessage({ type: 'LAUNCH_HOME' }, '*'); } catch(e) {} window.location.href='/home.html';"
+      title="Return to Friends Kredit Public Home Page"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dfb135" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Return to <strong>Public Home Page</strong> (Project 1)</span>
+    </div>
+
+    <!-- Floating Verification & Credentials Hub for Project 2 -->
+    <div id="dsa-verification-pill" class="fixed bottom-16 left-4 z-50 bg-white/95 border border-indigo-200 rounded-2xl p-3 shadow-2xl backdrop-blur-md max-w-md text-xs">
+      <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
+        <div class="flex items-center gap-1.5 font-bold text-slate-900">
+          <span class="text-indigo-600">🛡️</span>
+          <span>DSA Verification & Role Center</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span id="pending-dsa-badge" class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">0 Pending</span>
+          <button onclick="document.getElementById('dsa-verification-content').classList.toggle('hidden')" class="text-slate-500 hover:text-slate-800 text-[10px] px-1.5 py-0.5 rounded bg-slate-100">toggle</button>
+        </div>
+      </div>
+
+      <div id="dsa-verification-content" class="space-y-2">
+        <!-- 3-Tier Verification Desk for Pending DSAs -->
+        <div id="pending-dsa-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <!-- Quick Role Switcher with exact user credentials -->
+        <div class="pt-2 border-t border-slate-200">
+          <div class="text-[10px] uppercase font-bold text-slate-400 mb-1">Active Credentials Switcher:</div>
+          <div class="grid grid-cols-2 gap-1.5">
+            <button onclick="switchRoleAndReload('super_admin')" class="text-left p-1.5 rounded-lg border border-purple-200 bg-purple-50 hover:bg-purple-100 text-[11px]">
+              <div class="font-bold text-purple-900">👑 Super Admin</div>
+              <div class="text-[10px] text-purple-700 font-mono">admin@friendskredit.com</div>
+              <div class="text-[9px] text-purple-600">Pass: Admin@Friends2026</div>
+            </button>
+            <button onclick="switchRoleAndReload('admin')" class="text-left p-1.5 rounded-lg border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-[11px]">
+              <div class="font-bold text-indigo-900">🏢 Admin / Ops</div>
+              <div class="text-[10px] text-indigo-700 font-mono">operations@friendskredit.com</div>
+              <div class="text-[9px] text-indigo-600">Pass: Operations@2026</div>
+            </button>
+            <button onclick="switchRoleAndReload('staff')" class="text-left p-1.5 rounded-lg border border-blue-200 bg-blue-50 hover:bg-blue-100 text-[11px]">
+              <div class="font-bold text-blue-900">📋 Staff Underwriter</div>
+              <div class="text-[10px] text-blue-700 font-mono">underwriter@friendskredit.com</div>
+              <div class="text-[9px] text-blue-600">Pass: Underwriter@2026</div>
+            </button>
+            <button onclick="switchRoleAndReload('retail_partner')" class="text-left p-1.5 rounded-lg border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-[11px]">
+              <div class="font-bold text-emerald-900">🤝 Retail Partner</div>
+              <div class="text-[10px] text-emerald-700 font-mono">rajesh@sharmafin.com</div>
+              <div class="text-[9px] text-emerald-600">Pass: Partner@2026</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/finconnect-sync.js"></script>
+    <script>
+      function switchRoleAndReload(role) {
+        localStorage.setItem('finconnect_role', role);
+        window.location.reload();
+      }
+
+      function renderPendingDsaQueue() {
+        const listEl = document.getElementById('pending-dsa-list');
+        const badgeEl = document.getElementById('pending-dsa-badge');
+        if (!listEl) return;
+
+        const partners = JSON.parse(localStorage.getItem('finconnect_partners') || '[]');
+        const currentRole = localStorage.getItem('finconnect_role') || 'super_admin';
+        const pendingPartners = partners.filter(p => p.status !== 'active' && p.status !== 'inactive');
+
+        if (badgeEl) {
+          badgeEl.textContent = `${pendingPartners.length} In Verification`;
+          badgeEl.className = pendingPartners.length > 0 
+            ? 'px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px] animate-pulse'
+            : 'px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]';
+        }
+
+        if (pendingPartners.length === 0) {
+          listEl.innerHTML = `
+            <div class="p-2 rounded bg-slate-50 border border-slate-200 text-slate-500 text-[11px] text-center">
+              ✓ All DSA Partners are verified & active. Apply as a new DSA on Home page to test the verification pipeline!
+            </div>
+          `;
+          return;
+        }
+
+        listEl.innerHTML = pendingPartners.map(p => {
+          const underwriterDone = p.underwriterStatus === 'verified';
+          const operationsDone = p.operationsStatus === 'verified';
+          const superAdminDone = p.superAdminStatus === 'verified';
+
+          let actionBtn = '';
+          if (currentRole === 'staff') {
+            if (!underwriterDone) {
+              actionBtn = `<button onclick="handleVerifyStep('${p.id}', 'underwriter')" class="px-2 py-1 rounded bg-blue-600 hover:bg-blue-700 text-white font-bold text-[10px]">1. Verify KYC</button>`;
+            } else {
+              actionBtn = `<span class="text-blue-700 font-bold text-[10px]">✓ KYC Verified</span>`;
+            }
+          } else if (currentRole === 'admin') {
+            if (!underwriterDone) {
+              actionBtn = `<span class="text-amber-700 text-[10px]">Awaiting Underwriter</span>`;
+            } else if (!operationsDone) {
+              actionBtn = `<button onclick="handleVerifyStep('${p.id}', 'operations')" class="px-2 py-1 rounded bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-[10px]">2. Clear Operations</button>`;
+            } else {
+              actionBtn = `<span class="text-indigo-700 font-bold text-[10px]">✓ Ops Cleared</span>`;
+            }
+          } else if (currentRole === 'super_admin') {
+            if (!underwriterDone) {
+              actionBtn = `<button onclick="handleVerifyStep('${p.id}', 'underwriter')" class="px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 text-[9px] mr-1">Verify KYC</button>`;
+            }
+            if (underwriterDone && !operationsDone) {
+              actionBtn = `<button onclick="handleVerifyStep('${p.id}', 'operations')" class="px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-800 text-[9px] mr-1">Clear Ops</button>`;
+            }
+            if (underwriterDone && operationsDone && !superAdminDone) {
+              actionBtn = `<button onclick="handleVerifyStep('${p.id}', 'super_admin')" class="px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px]">3. Activate Partner</button>`;
+            } else if (!superAdminDone) {
+              actionBtn += `<button onclick="handleVerifyStep('${p.id}', 'super_admin')" class="px-2 py-1 rounded bg-purple-600 hover:bg-purple-700 text-white font-bold text-[10px] mt-1">Force Activate</button>`;
+            }
+          }
+
+          return `
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200 text-[11px] space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-slate-900">${p.name} <span class="text-slate-500 font-mono text-[10px]">(${p.partnerCode})</span></span>
+                <span class="text-[9px] px-1.5 py-0.2 rounded font-bold uppercase bg-amber-100 text-amber-800">${p.status || 'pending'}</span>
+              </div>
+              <div class="text-slate-600 text-[10px] flex items-center justify-between">
+                <span>📍 ${p.city || 'Mumbai'} • 💼 ${p.currentProfession || 'DSA'}</span>
+                <span>Vol: ${p.expectedMonthlyVolume || '₹50L+'}</span>
+              </div>
+              <div class="flex items-center gap-1 text-[9px] font-semibold text-slate-500">
+                <span class="${underwriterDone ? 'text-emerald-700 font-bold' : 'text-slate-400'}">1. Underwriter: ${underwriterDone ? '✓ Verified' : '⏳ Pending'}</span>
+                <span>•</span>
+                <span class="${operationsDone ? 'text-emerald-700 font-bold' : 'text-slate-400'}">2. Operations: ${operationsDone ? '✓ Cleared' : '⏳ Pending'}</span>
+                <span>•</span>
+                <span class="${superAdminDone ? 'text-emerald-700 font-bold' : 'text-slate-400'}">3. Super Admin: ${superAdminDone ? '✓ Active' : '⏳ Pending'}</span>
+              </div>
+              <div class="flex items-center justify-between pt-1 border-t border-slate-200">
+                <span class="text-[9px] text-slate-400">Action for ${currentRole.replace('_', ' ')}:</span>
+                <div>${actionBtn}</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function handleVerifyStep(partnerId, step) {
+        if (step === 'underwriter') {
+          window.FinConnectBridge.verifyDsaByStaffUnderwriter(partnerId, 'Verified KYC & Documents');
+        } else if (step === 'operations') {
+          window.FinConnectBridge.verifyDsaByAdminOperations(partnerId, 'Cleared Channel Agreement & Payout SLA');
+        } else if (step === 'super_admin') {
+          window.FinConnectBridge.activateDsaBySuperAdmin(partnerId, 'Final Super Admin Executive Activation');
+        }
+        renderPendingDsaQueue();
+        setTimeout(() => window.location.reload(), 300);
+      }
+
+      window.addEventListener('storage', renderPendingDsaQueue);
+      window.addEventListener('message', function(e) {
+        if (e.data && (e.data.type === 'SYNC_DATA_UPDATE' || e.data.type === 'DSA_REGISTERED' || e.data.type === 'LOAN_APPLIED')) {
+          renderPendingDsaQueue();
+        }
+      });
+      document.addEventListener('DOMContentLoaded', renderPendingDsaQueue);
+      setTimeout(renderPendingDsaQueue, 500);
+    </script>
+    <script type="module" crossorigin src="/assets/index-BWWej-bk.js"></script>
+  </body>
+</html>

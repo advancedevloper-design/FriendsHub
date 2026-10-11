@@ -1,0 +1,6 @@
+{
+  "name": "Friends Kredit - Unified Financial Services & DSA Partner Hub",
+  "description": "India's premier financial services platform merging instant KYC loans, 50+ banking partners, credit cards, insurance, and comprehensive DSA & Retailer Partner Hub.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

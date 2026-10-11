@@ -1,0 +1,98 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role-based access for Customers, DSA Agents, Retailers, Staff, and Admins",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "format": "email", "maxLength": 128 },
+        "displayName": { "type": "string", "maxLength": 128 },
+        "role": { "type": "string", "enum": ["customer", "dsa_agent", "retailer", "admin", "staff"] },
+        "phone": { "type": "string", "maxLength": 20 },
+        "businessName": { "type": "string", "maxLength": 150 },
+        "panNumber": { "type": "string", "maxLength": 20 },
+        "address": { "type": "string", "maxLength": 255 },
+        "city": { "type": "string", "maxLength": 100 },
+        "state": { "type": "string", "maxLength": 100 },
+        "pincode": { "type": "string", "maxLength": 10 },
+        "bankName": { "type": "string", "maxLength": 100 },
+        "accountNumber": { "type": "string", "maxLength": 50 },
+        "ifscCode": { "type": "string", "maxLength": 20 },
+        "partnerCode": { "type": "string", "maxLength": 50 },
+        "status": { "type": "string", "enum": ["active", "pending", "suspended"], "maxLength": 30 },
+        "createdAt": { "type": "string", "maxLength": 50 },
+        "updatedAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["id", "email", "role"]
+    },
+    "LoanApplication": {
+      "title": "LoanApplication",
+      "description": "Financial service loan or product application file with underwriting lifecycle",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "applicantName": { "type": "string", "maxLength": 128 },
+        "applicantEmail": { "type": "string", "format": "email", "maxLength": 128 },
+        "applicantMobile": { "type": "string", "maxLength": 20 },
+        "productId": { "type": "string", "maxLength": 64 },
+        "productName": { "type": "string", "maxLength": 128 },
+        "bankId": { "type": "string", "maxLength": 64 },
+        "bankName": { "type": "string", "maxLength": 128 },
+        "requestedAmount": { "type": "number" },
+        "disbursedAmount": { "type": "number" },
+        "tenureMonths": { "type": "number" },
+        "interestRate": { "type": "number" },
+        "status": {
+          "type": "string",
+          "enum": ["new_application", "under_process", "pending_disburse", "commission_verify", "ready_to_release", "disbursed", "rejected"]
+        },
+        "partnerId": { "type": "string", "maxLength": 128 },
+        "partnerCode": { "type": "string", "maxLength": 50 },
+        "commissionAmount": { "type": "number" },
+        "commissionStatus": { "type": "string", "enum": ["pending", "verified", "released"] },
+        "panNumber": { "type": "string", "maxLength": 20 },
+        "aadhaarNumber": { "type": "string", "maxLength": 20 },
+        "employmentType": { "type": "string", "maxLength": 50 },
+        "monthlyIncome": { "type": "number" },
+        "cibilScore": { "type": "number" },
+        "remarks": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "maxLength": 50 },
+        "updatedAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["id", "applicantName", "productId", "requestedAmount", "status"]
+    },
+    "CommissionRecord": {
+      "title": "CommissionRecord",
+      "description": "Commission ledger record for DSA agents and retail partners",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "partnerId": { "type": "string", "maxLength": 128 },
+        "applicationId": { "type": "string", "maxLength": 128 },
+        "productName": { "type": "string", "maxLength": 128 },
+        "disbursedAmount": { "type": "number" },
+        "commissionRate": { "type": "number" },
+        "commissionAmount": { "type": "number" },
+        "payoutStatus": { "type": "string", "enum": ["pending", "verified", "released"] },
+        "transactionReference": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["id", "partnerId", "commissionAmount", "payoutStatus"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "User" },
+      "description": "User profile collection storing individual role, contact, and business registration details"
+    },
+    "/applications/{applicationId}": {
+      "schema": { "$ref": "LoanApplication" },
+      "description": "Loan and credit applications submitted by customers or channel partner DSAs"
+    },
+    "/commissions/{commissionId}": {
+      "schema": { "$ref": "CommissionRecord" },
+      "description": "Commission ledger entries for DSA agents and retail partners"
+    }
+  }
+}

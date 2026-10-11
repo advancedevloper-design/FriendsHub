@@ -1,0 +1,7 @@
+/home.html /home.html 200
+/portal.html /portal.html 200
+/finconnect-sync.js /finconnect-sync.js 200
+/assets/* /assets/:splat 200
+/images/* /images/:splat 200
+/src/assets/images/* /src/assets/images/:splat 200
+/* /index.html 200
